@@ -1,2 +1,4 @@
 Django
 python-decouple
+ipython
+django-extensions

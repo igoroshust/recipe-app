@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from .models import *
 
 def index(request):
     return HttpResponse('Главная страница recipe-app')
