@@ -24,6 +24,6 @@ from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
-    # path('test/', TemplateView.as_view(template_name="recipe-app/public/index.html")),
+    path('test/', TemplateView.as_view(template_name="index.html")),
 ]
 

@@ -1,3 +1,29 @@
 from django.db import models
 
-# Create your models here.
+class Recipe(models.Model):
+    """Карточка Блюда"""
+    title = models.CharField(max_length=255)
+    content = models.TextField(blank=True)
+    ingredients = models.TextField()
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    time_create = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Блюдо'
+        verbose_name_plural = 'Блюда'
+
+    def __str__(self):
+        return self.title
+
+class Category(models.Model):
+    """Категория Блюд"""
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+    def __str__(self):
+        return self.name
+
