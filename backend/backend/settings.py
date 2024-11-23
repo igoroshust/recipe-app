@@ -61,7 +61,8 @@ MIDDLEWARE = [
 
 # CORS (Cross-Origin Resource Sharing) - стандарт предоставления веб-страницам доступа к объектам сторонних ресурсов
 CORS_ALLOW_CREDENTIALS = True # Поддержка cookies и аутентификация через сессии
-CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:8000", "http://localhost:8000"] # Разрешённые источники
+CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:8000", "http://localhost:8000", "http://localhost:3000",
+                        "http://127.0.0.1:3000", "http://192.168.0.11:3000",] # Разрешённые источники
 CORS_URLS_REGEX = r'^/api/.*$' # Разрешает запросы с источников, соответствующих указаным ругялрным выражениям
 # CORS_ALLOW_ALL_ORIGINS = True  # Открытый доступ для всех источников
 
