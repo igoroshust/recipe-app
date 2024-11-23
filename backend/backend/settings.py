@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'api.apps.ApiConfig',
     'django_extensions',
+    'django_filters',
     'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
@@ -70,7 +71,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'swagger'),],
+        'DIRS': [os.path.join(BASE_DIR, 'swagger')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
