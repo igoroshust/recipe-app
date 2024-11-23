@@ -4,4 +4,8 @@ const getRecipesList = () => {
     return $api.get('recipes/')
 }
 
-export { getRecipesList };
+const getRecipeInfo = (recipeId) => {
+    return $api.get(`recipes/${recipeId}`)
+}
+
+export { getRecipesList, getRecipeInfo };
