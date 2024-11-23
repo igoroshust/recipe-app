@@ -24,6 +24,8 @@ from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
-    path('test/', TemplateView.as_view(template_name="index.html")),
+    path('api/', include('api.urls')),
+
+    # path('test/', TemplateView.as_view(template_name="index.html")),
 ]
 

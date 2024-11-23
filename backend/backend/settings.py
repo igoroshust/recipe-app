@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,15 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'app.apps.AppConfig',
     'api.apps.ApiConfig',
     'django_extensions',
+    'corsheaders',
     'rest_framework',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -53,12 +58,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# CORS (Cross-Origin Resource Sharing) - стандарт предоставления веб-страницам доступа к объектам сторонних ресурсов
+CORS_ALLOW_CREDENTIALS = True # Поддержка cookies и аутентификация через сессии
+CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:8000", "http://localhost:8000"] # Разрешённые источники
+CORS_URLS_REGEX = r'^/api/.*$' # Разрешает запросы с источников, соответствующих указаным ругялрным выражениям
+# CORS_ALLOW_ALL_ORIGINS = True  # Открытый доступ для всех источников
+
+
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'swagger'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,6 +96,8 @@ DATABASES = {
     }
 }
 
+SITE_ID = 1 # БД может управлять контентом для нескольких сайтов,
+# данные приложения могут подключаться к определённым сайтам
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -114,7 +128,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

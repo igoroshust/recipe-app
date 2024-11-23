@@ -10,10 +10,9 @@ router.register(r'recipes', ResipeViewset)
 router.register(r'categories', CategoryViewset)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('openapi', get_schema_view(
+    path('openapi/', get_schema_view(
         title="recipe-app",
         description="Project on Django and React",
     ), name='openapi-schema'),
