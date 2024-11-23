@@ -1,12 +1,28 @@
+from django.views.generic import (ListView, DetailView, CreateView, DeleteView, UpdateView, TemplateView, View)
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from .models import *
 
+
+class RecipeDetailView(DetailView):
+    """Содержимое рецепта"""
+    model = Recipe
+    template_name = 'app/recipe.html'
+    context_object_name = 'recipe'
+    queryset = Recipe.objects.all()
+
+
 def index(request):
-    return HttpResponse('Главная страница recipe-app')
-    # t = render_to_string('index.html')
+    # t = render_to_string('app/index.html')
     # return HttpResponse(t)
+    data = {
+        'title': 'Главная страница',
+    }
+    return render(request, 'app/index.html', context=data)
+
+# def about(request):
+#     return render(request, 'app/recipe.html')
 
 def categories(request, cat_id):
     """Отображение категорий по ID"""

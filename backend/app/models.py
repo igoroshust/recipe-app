@@ -17,7 +17,7 @@ class Recipe(models.Model):
 
 class Category(models.Model):
     """Категория Блюд"""
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, default='Без категории')
     description = models.TextField()
 
     class Meta:
