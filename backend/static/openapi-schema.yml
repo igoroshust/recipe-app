@@ -6,7 +6,7 @@ paths:
   /recipes/:
     get:
       operationId: RecipeListView
-      description: 'Recipes list'
+      description: 'Recipeslist'
       parameters: []
       responses:
         '200':
@@ -24,7 +24,7 @@ paths:
   /recipes/{id}/:
     get:
       operationId: RecipeDetailView
-      description: 'Detail about recipe'
+      description: 'RecipeDetail'
       parameters:
         - name: id
           in: path
