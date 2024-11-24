@@ -1,16 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getCategoryList, getCategoryInfo } from '../../api/getCategories';
+import { getCategoryList } from '../../api/getCategories';
 
 const CategoryList = () => {
 
     const [categories, setCategories] = useState([]);
     const getResult = async () => {
-//        const res = await getRecipeInfo(3);
-//        setRecipes([res.data]);
-    const res = await getCategoryList();
-    setCategories(res.data);
-}
+        const res = await getCategoryList();
+        setCategories(res.data);
+    }
 
     useEffect(() => {
         getResult();
@@ -18,17 +17,18 @@ const CategoryList = () => {
 
         return (
     <>
-     <div class="col-lg-4">
-        <div class="card mb-4">
-            <div class="card-header">Categories</div>
-               <div class="card-body">
-                   <div class="row">
-                       <div class="col-sm-6">
+     <div className="col-lg-4">
+        <div className="card mb-4">
+            <div className="card-header">Categories</div>
+               <div className="card-body">
+                   <div className="row">
+                       <div className="col-sm-6">
+                       <ul className="list-unstyled mb-0">
+                       <li><Link to="categories/">Все категории</Link></li>
                         { !!categories.length && categories.map((category) => (
-                           <ul class="list-unstyled mb-0">
-                               <li><a href="#!">{ category.name }</a></li>
-                           </ul>
+                               <li><Link to={`categories/${ category.id }`}>{ category.name }</Link></li>
                         ))}
+                        </ul>
                        </div>
                    </div>
               </div>

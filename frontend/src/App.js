@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
@@ -9,12 +10,17 @@ import Main from './components/Main/Main';
 function App() {
 
   return (
-    <div className="App">
-        <Navbar />
-        <Header />
-        <Main />
-        <Footer />
-    </div>
+   <Router>
+        <div className="App">
+            <Navbar />
+            <Header />
+                <Routes>
+                    <Route path="/" element={ <Main /> } />
+                    <Route path="/categories/:id/" element={ <Main /> } />
+                </Routes>
+            <Footer />
+        </div>
+    </Router>
   );
 }
 

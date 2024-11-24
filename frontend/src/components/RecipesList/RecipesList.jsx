@@ -5,7 +5,6 @@ import { getRecipesList } from '../../api/getRecipes';
 const RecipesList = () => {
 
     const [recipes, setRecipes] = useState([]);
-
     const getResult = async () => {
 //        const res = await getRecipeInfo(3);
 //        setRecipes([res.data]);

@@ -24,7 +24,7 @@ const RecipeInfo = () => {
             <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
             <h2 class="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>
             <p class="card-text">{ recipe.content }</p>
-            <p class="card-text">{ recipe.category_name }</p>
+            <p class="card-text">{ recipe.category.name }</p>
             <div class="small text-muted">{ recipe.time_create }</div>
           ))}
      </>
