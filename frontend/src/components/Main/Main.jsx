@@ -1,14 +1,16 @@
 import React from 'react';
-import RecipeCard from '../RecipeCard/RecipeCard';
-import CategoriesWidget from '../CategoriesWidget/CategoriesWidget';
+import RecipesList from '../RecipesList/RecipesList';
+// import CategoriesWidget from '../CategoriesWidget/CategoriesWidget';
+import CategoryList from '../CategoryList/CategoryList';
+
 
 const Main = () => {
     return (
         <div class="container">
             <div class="row">
-               <CategoriesWidget />
+               <CategoryList />
                   <div class="col-lg-8">
-                    <RecipeCard />
+                    <RecipesList />
                 </div>
             </div>
         </div>
