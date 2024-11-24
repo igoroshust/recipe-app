@@ -24,9 +24,9 @@ const CategoryList = () => {
                    <div className="row">
                        <div className="col-sm-6">
                        <ul className="list-unstyled mb-0">
-                       <li><Link to="categories/">Все категории</Link></li>
+                       <li><Link to="/">Все категории</Link></li>
                         { !!categories.length && categories.map((category) => (
-                               <li><Link to={`categories/${ category.id }`}>{ category.name }</Link></li>
+                               <li><Link to={`/categories/${ category.id }`}>{ category.name }</Link></li>
                         ))}
                         </ul>
                        </div>

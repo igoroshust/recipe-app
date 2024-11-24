@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from .views import *
 
 router = routers.DefaultRouter()
-router.register(r'recipes', ResipeViewset)
+router.register(r'recipes', RecipeViewset)
 router.register(r'categories', CategoryViewset)
 
 urlpatterns = [

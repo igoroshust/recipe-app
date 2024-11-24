@@ -2,8 +2,11 @@ from django.views.generic import (ListView, DetailView, CreateView, DeleteView, 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+
+from rest_framework import generics
 from .models import *
 from .filters import *
+from api.serializers import *
 
 
 class RecipeDetailView(DetailView):
@@ -31,6 +34,17 @@ class RecipeListView(ListView):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
         return context
+
+class RecipeListByCategory(ListView):
+    """Список блюд по категории"""
+    model = Recipe
+    context_object_name = 'categories'
+    template_name = 'app/category_list.html'
+    serializer_class = RecipeSerializer
+
+    def get_queryset(self, request):
+        category_id = self.kwargs['category_id']
+        return Recipe.objects.filter(category_id=category_id)
 
 
 def index(request):
