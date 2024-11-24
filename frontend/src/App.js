@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Header from './components/Header/Header';
 import { getRecipesList, getRecipeInfo } from './api/getRecipes';
 
 function App() {
@@ -7,11 +9,11 @@ function App() {
   const [recipes, setRecipes] = useState([]);
 
   const getResult = async () => {
-        const res = await getRecipeInfo(3);
-        setRecipes([res.data]);
+//        const res = await getRecipeInfo(3);
+//        setRecipes([res.data]);
 
-      // const res = await getRecipesList();
-     // setRecipes(res.data);
+       const res = await getRecipesList();
+      setRecipes(res.data);
 
    }
 
@@ -21,6 +23,8 @@ function App() {
 
   return (
     <div className="App">
+        <Navbar />
+        <Header />
      <h2>Список рецептов</h2>
      { !!recipes.length && recipes.map((recipe) => (
         <>
