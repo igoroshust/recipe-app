@@ -185,6 +185,7 @@ address {
 ol,
 ul {
   padding-left: 2rem;
+
 }
 
 ol,
@@ -562,6 +563,10 @@ progress {
   list-style: none;
 }
 
+.list-unstyled a {
+    text-decoration: none;
+}
+
 .list-inline {
   padding-left: 0;
   list-style: none;
@@ -671,10 +676,13 @@ progress {
   --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
+
 .row > * {
   flex-shrink: 0;
   width: 100%;
