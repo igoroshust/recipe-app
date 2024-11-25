@@ -7,12 +7,18 @@ class RecipeSerializer(serializers.HyperlinkedModelSerializer):
         model = Recipe
         fields = ['id', 'title', 'content', 'ingredients', 'category_name', 'time_create', 'category_id', ]
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class CategoryDetailSerializer(serializers.HyperlinkedModelSerializer):
     recipes = RecipeSerializer(many=True, read_only=True)
 
     class Meta:
         model = Category
         fields = ['id', 'name', 'description', 'recipes',]
+
+class CategoryListSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = ['id', 'name', 'description',]
 
 """
 устанавливая, many=True вы сообщаете drf, что queryset содержит несколько элементов (список элементов), 

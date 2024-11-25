@@ -8,23 +8,22 @@ from rest_framework.decorators import api_view
 from api.serializers import *
 from app.models import *
 
-class RecipeViewset(ReadOnlyModelViewSet):
+class RecipeViewSet(ReadOnlyModelViewSet):
     """Представление Блюд"""
     queryset = Recipe.objects.all()
-    print(queryset)
     serializer_class = RecipeSerializer
 
-    def get_serializer_class(self):
-        return RecipeSerializer
 
-class CategoryViewset(ReadOnlyModelViewSet):
+class CategoryDetailViewSet(ReadOnlyModelViewSet):
     """Представление Категорий"""
     queryset = Category.objects.all()
-    print(queryset)
-    serializer_class = CategorySerializer
+    serializer_class = CategoryDetailSerializer
 
-    def get_serializer_class(self):
-        return CategorySerializer
+
+class CategoryListViewSet(ReadOnlyModelViewSet):
+    """Представление Категорий"""
+    queryset = Category.objects.all()
+    serializer_class = CategoryListSerializer
 
 @api_view(['GET'])
 def recipesView(request):

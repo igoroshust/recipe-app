@@ -9,12 +9,20 @@
 </head>
 <body>
 
-<h1>Список Блюд по Категориям</h1>
+<h1>Список блюд по Категориям</h1>
 
+{% if not categories %}
+<p>Такой категории не существует</p>
+{% endif %}
 {% if categories %}
 {% for cat in categories %}
+{% if forloop.first %}
 <p> ID категории: {{ cat.category_id }}</p>
-<p> Блюдо: {{ cat.title }}</p>
+<p>Список блюд:</p>
+{% endif %}
+<ul>
+    <li>{{ cat.title }}</li>
+</ul>
 {% endfor %}
 {% endif %}
 

@@ -5,7 +5,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     ingredients = models.TextField()
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='recipes')
     time_create = models.DateTimeField(auto_now_add=True)
 
     class Meta:

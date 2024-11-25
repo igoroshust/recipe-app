@@ -42,7 +42,7 @@ class RecipeListByCategory(ListView):
     template_name = 'app/category_list.html'
     serializer_class = RecipeSerializer
 
-    def get_queryset(self, request):
+    def get_queryset(self):
         category_id = self.kwargs['category_id']
         return Recipe.objects.filter(category_id=category_id)
 
