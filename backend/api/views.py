@@ -3,6 +3,8 @@ from rest_framework import viewsets, generics
 from rest_framework import permissions
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
+from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 
 from api.serializers import *
@@ -24,6 +26,13 @@ class CategoryListViewSet(ReadOnlyModelViewSet):
     """Представление Категорий"""
     queryset = Category.objects.all()
     serializer_class = CategoryListSerializer
+
+class CustomApiRootView(APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({
+            'categories': reverse('test-category-list', request=request),
+            'category-detail': reverse('category-detail', kwargs={'pk': 1}, request=request),
+        })
 
 @api_view(['GET'])
 def recipesView(request):

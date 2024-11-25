@@ -1,13 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
 import { getRecipeInfo } from '../../api/getRecipes';
 
 const RecipeInfo = () => {
 
+    const { id } = useParams(); // Извлечение параметра ID из URL
     const [recipes, setRecipes] = useState([]);
 
     const getResult = async () => {
-       const res = await getRecipeInfo(6);
+       const res = await getRecipeInfo(id);
        setRecipes([res.data]);
 //     const res = await getRecipesList();
 //     setRecipes(res.data);
@@ -15,13 +18,16 @@ const RecipeInfo = () => {
 
     useEffect(() => {
         getResult();
-    }, []);
+    }, [id]);
 
     return (
     <>
+        <Navbar />
+        <br />
          { !!recipes.length && recipes.map((recipe) => (
             <div className="container">
-            <div class="col-lg-8">
+            <h3>Информация о рецепте "{ recipe.title }"</h3><br />
+            <div className="col-lg-6">
             <div className="card mb-4">
             {recipe.image ? (
                 <img

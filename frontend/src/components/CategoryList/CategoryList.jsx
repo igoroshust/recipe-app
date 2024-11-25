@@ -19,7 +19,7 @@ const CategoryList = () => {
     <>
      <div className="col-lg-4">
         <div className="card mb-4">
-            <div className="card-header">Categories</div>
+            <div className="card-header">Категории рецептов</div>
                <div className="card-body">
                    <div className="row1">
                        <div className="col-sm-6">

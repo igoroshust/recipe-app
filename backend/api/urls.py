@@ -7,14 +7,13 @@ from .views import *
 
 router = routers.DefaultRouter()
 router.register(r'recipes', RecipeViewSet)
-# router.register(r'categories', CategoryDetailViewSet)
+# router.register(r'categories/')
 
 
 urlpatterns = [
     path('', include(router.urls)),
     path('categories/', CategoryListViewSet.as_view({'get': 'list'}), name='test-category-list'),
     path('categories/<int:pk>/', CategoryDetailViewSet.as_view({'get': 'retrieve'}), name='category-detail'),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('openapi/', get_schema_view(
         title="recipe-app",
         description="Project on Django and React",

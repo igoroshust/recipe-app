@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#!">recipe-app</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">API Info</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">OpenAPI Schema</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Swagger</a></li>
+         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="container">
+                <Link className="navbar-brand" to="/">recipe-app</Link>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li className="nav-item"><a className="nav-link" href={`${process.env.REACT_APP_API_URL}/api/`} target="_blank" rel="noopener noreferrer">API Info</a></li>
+                        <li className="nav-item"><a className="nav-link" href={`${process.env.REACT_APP_API_URL}/api/openapi/`}  target="_blank" rel="noopener noreferrer">OpenAPI Schema</a></li>
+                        <li className="nav-item"><a className="nav-link active" aria-current="page" href={`${process.env.REACT_APP_API_URL}/api/swagger-ui/`}  target="_blank" rel="noopener noreferrer">Swagger</a></li>
                     </ul>
                 </div>
             </div>

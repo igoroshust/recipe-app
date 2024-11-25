@@ -35,7 +35,7 @@ const RecipesList = () => {
             <div className="small text-muted">{new Date(recipe.time_create).toLocaleString() }</div>
             <h2 className="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>
             <p className="card-text">{ recipe.content }</p>
-            <Link className="btn btn-primary" href='#'>Read more →</Link>
+            <Link className="btn btn-primary" to={`/recipes/${recipe.id}`}>Читать подробнее →</Link>
             </div>
          </div>
           ))}

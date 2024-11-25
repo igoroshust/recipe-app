@@ -13,8 +13,6 @@ function App() {
   return (
    <Router>
         <div className="App">
-            <Navbar />
-            <Header />
                 <Routes>
                     <Route path="/" element={ <Main /> } />
                     <Route path="/categories/:id/" element={ <Main /> } />
