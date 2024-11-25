@@ -3,6 +3,9 @@
 {% block content %}
 
 <h1>{{ recipe.title }}</h1>
+{% if recipe.image %}
+<img src="{{ recipe.image.url }}" style="width: 400px; height: 250px; border-radius: 5px;">
+{% endif %}
 <p>Описание: {{ recipe.content }}</p>
 <p>Ингредиенты: {{ recipe.ingredients }}</p>
 <p>Категория: {{ recipe.category }}</p>

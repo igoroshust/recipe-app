@@ -7,7 +7,7 @@ const RecipeInfo = () => {
     const [recipes, setRecipes] = useState([]);
 
     const getResult = async () => {
-       const res = await getRecipeInfo(3);
+       const res = await getRecipeInfo(6);
        setRecipes([res.data]);
 //     const res = await getRecipesList();
 //     setRecipes(res.data);
@@ -23,7 +23,11 @@ const RecipeInfo = () => {
             <div className="container">
             <div className="row">
             <div className="card mb-4">
-            <img src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." height="350"/>
+            <img
+                src={`${recipe.image}`}
+                alt={recipe.title}
+                style={{ width: '400px', height: '250px', borderRadius: '5px' }}
+            />
             <div className="card-body">
             <h4 className="card-title">{ recipe.title }</h4>
             <p className="card-text">{ recipe.content }</p>

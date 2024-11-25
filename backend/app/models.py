@@ -7,6 +7,7 @@ class Recipe(models.Model):
     ingredients = models.TextField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='recipes')
     time_create = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Блюдо'
