@@ -19,16 +19,24 @@ const RecipeInfo = () => {
 
     return (
     <>
-        <h2>Информация о конкретном рецепте</h2>
          { !!recipes.length && recipes.map((recipe) => (
-            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-            <h2 class="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>
-            <p class="card-text">{ recipe.content }</p>
-            <p class="card-text">{ recipe.category.name }</p>
-            <div class="small text-muted">{ recipe.time_create }</div>
+            <div className="container">
+            <div className="row">
+            <div className="card mb-4">
+            <img src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." height="350"/>
+            <div className="card-body">
+            <h4 className="card-title">{ recipe.title }</h4>
+            <p className="card-text">{ recipe.content }</p>
+            <p className="card-text">Ингредиенты: { recipe.ingredients }</p>
+            <p className="card-text">Категория: { recipe.category_name }</p>
+            <div className="small text-muted">Дата создания: { recipe.time_create }</div>
+            </div>
+            </div>
+            </div>
+            </div>
           ))}
      </>
     );
 }
 
-export default RecipesList;
+export default RecipeInfo;

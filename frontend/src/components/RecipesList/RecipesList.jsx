@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getRecipesList } from '../../api/getRecipes';
 
@@ -23,10 +24,10 @@ const RecipesList = () => {
             <div className="card mb-4">
             <a href="#!"><img className="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
             <div className="card-body">
-            <div className="small text-muted">{ recipe.time_create }</div>
+            <div className="small text-muted">{new Date(recipe.time_create).toLocaleString() }</div>
             <h2 className="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>
             <p className="card-text">{ recipe.content }</p>
-            <a className="btn btn-primary" href="#!">Read more →</a>
+            <Link className="btn btn-primary" href='#'>Read more →</Link>
             </div>
          </div>
           ))}

@@ -2,6 +2,9 @@ from app.models import *
 from rest_framework import serializers
 class RecipeSerializer(serializers.HyperlinkedModelSerializer):
     category_name = serializers.CharField(source='category.name', read_only=True)
+    time_create = serializers.DateTimeField(format='%Y-%m-%d %H:%M:%S') #%-d %B, %Y
+
+
 
     class Meta:
         model = Recipe
