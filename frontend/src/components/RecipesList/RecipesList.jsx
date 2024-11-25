@@ -22,7 +22,15 @@ const RecipesList = () => {
     <>
          { !!recipes.length && recipes.map((recipe) => (
             <div className="card mb-4">
-            <a href="#!"><img className="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+            {recipe.image ? (
+                <img
+                    className="card-img-top"
+                    src={`${recipe.image}`}
+                    alt={recipe.title}
+                />
+            ) : (
+               <img className="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+            )}
             <div className="card-body">
             <div className="small text-muted">{new Date(recipe.time_create).toLocaleString() }</div>
             <h2 className="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>

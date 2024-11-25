@@ -21,13 +21,17 @@ const RecipeInfo = () => {
     <>
          { !!recipes.length && recipes.map((recipe) => (
             <div className="container">
-            <div className="row">
+            <div class="col-lg-8">
             <div className="card mb-4">
-            <img
-                src={`${recipe.image}`}
-                alt={recipe.title}
-                style={{ width: '400px', height: '250px', borderRadius: '5px' }}
-            />
+            {recipe.image ? (
+                <img
+                    className="card-img-top"
+                    src={`${recipe.image}`}
+                    alt={recipe.title}
+                />
+            ) : (
+               <img className="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+            )}
             <div className="card-body">
             <h4 className="card-title">{ recipe.title }</h4>
             <p className="card-text">{ recipe.content }</p>

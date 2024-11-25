@@ -21,7 +21,7 @@ const CategoryList = () => {
         <div className="card mb-4">
             <div className="card-header">Categories</div>
                <div className="card-body">
-                   <div className="row">
+                   <div className="row1">
                        <div className="col-sm-6">
                        <ul className="list-unstyled mb-0">
                        <li><Link to="/">Все категории</Link></li>

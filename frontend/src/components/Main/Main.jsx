@@ -9,7 +9,7 @@ const Main = () => {
         <div class="container">
             <div class="row">
                <CategoryList />
-                  <div class="col-lg-8">
+                  <div class="col-lg-5">
                     <RecipesList />
                 </div>
             </div>
