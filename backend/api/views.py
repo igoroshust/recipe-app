@@ -30,8 +30,9 @@ class CategoryListViewSet(ReadOnlyModelViewSet):
 class CustomApiRootView(APIView):
     def get(self, request, *args, **kwargs):
         return Response({
-            'categories': reverse('test-category-list', request=request),
-            'category-detail': reverse('category-detail', kwargs={'pk': 1}, request=request),
+            'recipes': reverse('recipes-list', request=request),
+            'categories': reverse('category-list', request=request),
+            'categories/id': reverse('category-detail', kwargs={'pk': 1}, request=request),
         })
 
 @api_view(['GET'])
