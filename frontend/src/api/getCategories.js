@@ -4,8 +4,8 @@ const getCategoryList = () => {
     return $api.get('categories/')
 }
 
-const getCategoryInfo = (categoryID) => {
-    return $api.get(`categories/${categoryID}`)
+const getCategoryInfo = (categoryId) => {
+    return $api.get(`categories/${categoryId}`)
 }
 
 export { getCategoryList, getCategoryInfo };

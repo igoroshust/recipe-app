@@ -39,10 +39,10 @@ const RecipeInfo = () => {
                <img className="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
             )}
             <div className="card-body">
-            <h4 className="card-title">{ recipe.title }</h4>
+            <h5 className="card-title">Способ приготовления</h5>
             <p className="card-text">{ recipe.content }</p>
-            <p className="card-text">Ингредиенты: { recipe.ingredients }</p>
-            <p className="card-text">Категория: { recipe.category_name }</p>
+            <p className="card-text"><i>Ингредиенты:</i><br /> { recipe.ingredients }</p>
+            <p className="card-text">Категория: { recipe.category_name.toLowerCase() }</p>
             <div className="small text-muted">Дата создания: { recipe.time_create }</div>
             </div>
             </div>
