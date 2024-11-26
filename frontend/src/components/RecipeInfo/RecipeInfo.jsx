@@ -26,6 +26,7 @@ const RecipeInfo = () => {
         <br />
          { !!recipes.length && recipes.map((recipe) => (
             <div className="container">
+            <div className="con">
             <h3>Информация о рецепте "{ recipe.title }"</h3><br />
             <div className="col-lg-6">
             <div className="card mb-4">
@@ -43,7 +44,14 @@ const RecipeInfo = () => {
             <p className="card-text">{ recipe.content }</p>
             <p className="card-text"><i>Ингредиенты:</i><br /> { recipe.ingredients }</p>
             <p className="card-text">Категория: { recipe.category_name.toLowerCase() }</p>
-            <div className="small text-muted">Дата создания: { recipe.time_create }</div>
+            <div className="small text-muted">Дата создания: {new Date(recipe.time_create).toLocaleString('ru-RU', {
+                day: 'numeric',
+                month: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false // Убираем AM/PM
+            }).replace(',', '')}</div>
+            </div>
             </div>
             </div>
             </div>

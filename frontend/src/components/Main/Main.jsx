@@ -15,9 +15,7 @@ const Main = () => {
         <div class="container">
             <div class="row">
                <CategoryList />
-                  <div class="col-lg-6">
                     <RecipesList />
-                </div>
             </div>
         </div>
         </>

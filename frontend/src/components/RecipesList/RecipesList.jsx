@@ -7,11 +7,10 @@ import { getRecipesList } from '../../api/getRecipes';
 const RecipesList = () => {
 
     const [recipes, setRecipes] = useState([]);
+
     const getResult = async () => {
-//        const res = await getRecipeInfo(3);
-//        setRecipes([res.data]);
-    const res = await getRecipesList();
-    setRecipes(res.data);
+        const res = await getRecipesList();
+        setRecipes(res.data);
 }
 
     useEffect(() => {
@@ -21,6 +20,7 @@ const RecipesList = () => {
     return (
     <>
          { !!recipes.length && recipes.map((recipe) => (
+            <div class="col-lg-4">
             <div className="card mb-4">
             {recipe.image ? (
              <Link to={`/recipes/${recipe.id}`}>
@@ -36,11 +36,18 @@ const RecipesList = () => {
                 </Link>
             )}
             <div className="card-body">
-            <div className="small text-muted">{new Date(recipe.time_create).toLocaleString() }</div>
+            <div className="small text-muted">{new Date(recipe.time_create).toLocaleString('ru-RU', {
+                day: 'numeric',
+                month: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false // Убираем AM/PM
+            }).replace(',', '')}</div>
             <h2 className="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>
-            <p className="card-text">{ recipe.content.substring(0, 200)}...</p>
+            <p className="card-text">{ recipe.content.substring(0, 140)}...</p>
             <Link className="btn btn-primary" to={`/recipes/${recipe.id}`}>Читать подробнее →</Link>
             </div>
+         </div>
          </div>
           ))}
      </>
