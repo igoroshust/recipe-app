@@ -39,8 +39,9 @@ const RecipeInfo = () => {
             )}
             <div className="card-body">
             <h5 className="card-title">Способ приготовления</h5>
-            <p className="card-text">{ recipe.content }</p>
-            <p className="card-text"><i>Ингредиенты:</i><br /> { recipe.ingredients }</p>
+            <p className="card-text formatted-text">{ recipe.content }</p>
+            <div dangerouslySetInnerHTML={{ __html: recipe.content }} />
+            <p className="card-text formatted-text"><i>Ингредиенты:</i><br />{ recipe.ingredients }</p>
             <p className="card-text">Категория: { recipe.category_name.toLowerCase() }</p>
             <div className="small text-muted">Дата создания: {new Date(recipe.time_create).toLocaleString('ru-RU', {
                 day: 'numeric',

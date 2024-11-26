@@ -31,9 +31,9 @@ const RecipesList = () => {
     }, [categoryId]);
 
     return (
-    <>
+    <div className="col-lg-8 row">
          { !!recipes.length && recipes.map((recipe) => (
-            <div class="col-lg-4">
+            <div className="col-lg-6">
             <div className="card mb-4">
             {recipe.image ? (
              <Link to={`/recipes/${recipe.id}`}>
@@ -63,7 +63,7 @@ const RecipesList = () => {
          </div>
          </div>
           ))}
-     </>
+     </div>
     );
 }
 

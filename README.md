@@ -1,17 +1,16 @@
-Build Backend: from BASE_DIR
+`Build Backend:`
 1) python -m venv venv
 2) venv\scripts\activate
 3) pip install -r requirements.txt
 4) cd backend
 5) python manage.py runserver
 
-Build Frontend: from BASE_DIR
-1) cd frontend
+`Build Frontend (from BASE_DIR):`
+1) cd frontend 
 2) npm i
 3) npm start
 
-Swagger & OpenAPI path:
-from BASE_DIR
-1) cd backend 
-2) swagger 
-3) static (openapi)
+`Swagger & OpenAPI:`
+http://localhost:8000/api/ - Custom Api Root (DRF)
+http://localhost:8000/api/swagger-ui/ - Swagger
+http://localhost:8000/api/openapi/ - OpenAPI Schema
