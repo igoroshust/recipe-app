@@ -13,8 +13,9 @@ from .views import *
 urlpatterns = [
     # path('', include(router.urls)),
     path('', CustomApiRootView.as_view(), name='api-root'),
-    path('categories/', CategoryListViewSet.as_view({'get': 'list'}), name='category-list'),
     path('recipes/', RecipeViewSet.as_view({'get': 'list'}), name='recipes-list'),
+    path('recipes/<int:pk>/', RecipeViewSet.as_view({'get': 'retrieve'}), name='recipes-info'),
+    path('categories/', CategoryListViewSet.as_view({'get': 'list'}), name='category-list'),
     path('categories/<int:pk>/', CategoryDetailViewSet.as_view({'get': 'retrieve'}), name='category-detail'),
     path('openapi/', get_schema_view(
         title="recipe-app",

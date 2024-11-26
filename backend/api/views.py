@@ -31,8 +31,9 @@ class CustomApiRootView(APIView):
     def get(self, request, *args, **kwargs):
         return Response({
             'recipes': reverse('recipes-list', request=request),
+            'recipes/id': reverse('recipes-info', kwargs={'pk': 3}, request=request),
             'categories': reverse('category-list', request=request),
-            'categories/id': reverse('category-detail', kwargs={'pk': 1}, request=request),
+            'categories/id': reverse('category-detail', kwargs={'pk': 3}, request=request),
         })
 
 @api_view(['GET'])
