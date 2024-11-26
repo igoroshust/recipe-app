@@ -8,7 +8,6 @@ import { getCategoryInfo } from '../../api/getCategories';
 const RecipesList = () => {
 
     const { categoryId } = useParams();
-    console.log(categoryId)
 
     const [recipes, setRecipes] = useState([]);
 
@@ -57,7 +56,7 @@ const RecipesList = () => {
                 hour12: false // Убираем AM/PM
             }).replace(',', '')}</div>
             <h2 className="card-title"><a href={ recipe.pk }>{ recipe.title }</a></h2>
-            <p className="card-text">{ recipe.content.substring(0, 140)}...</p>
+            <p className="card-text">{ recipe.content.substring(0, 125)}...</p>
             <Link className="btn btn-primary" to={`/recipes/${recipe.id}`}>Читать подробнее →</Link>
             </div>
          </div>

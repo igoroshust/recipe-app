@@ -15,12 +15,10 @@ class RecipeViewSet(ReadOnlyModelViewSet):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
-
 class CategoryDetailViewSet(ReadOnlyModelViewSet):
     """Представление Категорий"""
     queryset = Category.objects.all()
     serializer_class = CategoryDetailSerializer
-
 
 class CategoryListViewSet(ReadOnlyModelViewSet):
     """Представление Категорий"""
@@ -28,6 +26,7 @@ class CategoryListViewSet(ReadOnlyModelViewSet):
     serializer_class = CategoryListSerializer
 
 class CustomApiRootView(APIView):
+    """Кастромный API ROOT"""
     def get(self, request, *args, **kwargs):
         return Response({
             'recipes': reverse('recipes-list', request=request),
@@ -35,18 +34,3 @@ class CustomApiRootView(APIView):
             'categories': reverse('category-list', request=request),
             'categories/id': reverse('category-detail', kwargs={'pk': 3}, request=request),
         })
-
-@api_view(['GET'])
-def recipesView(request):
-    if request.method == 'GET':
-        recipes = Recipe.objects.all()
-        # dishes = Dishes.objects.filter(categoryType=request.query_params['category'])
-        serializer = RecipeSerializer(recipes, many=True)
-        return Response(serializer.data)
-
-"""
-устанавливая, many=True вы сообщаете drf, что queryset содержит несколько элементов (список элементов), 
-поэтому drf необходимо сериализовать каждый элемент с помощью класса сериализатора 
-(и serializer.data это будет список)
-Если вы не зададите этот аргумент, это будет означать, что queryset является единственным экземпляром и serializer.dataбудет единственным объектом)
-"""

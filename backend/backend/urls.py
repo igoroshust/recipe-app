@@ -25,7 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
     path('api/', include('api.urls')),
-
-    # path('test/', TemplateView.as_view(template_name="index.html")),
 ]
 
