@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Header from './components/Header/Header';
 // import CategoriesWidget from './components/CategoriesWidget/CategoriesWidget';
 // import RecipeCard from './components/RecipeCard/RecipeCard';
 import Footer from './components/Footer/Footer';
@@ -15,8 +13,8 @@ function App() {
         <div className="App">
                 <Routes>
                     <Route path="/" element={ <Main /> } />
-                    <Route path="/categories/:id/" element={ <Main /> } />
-                    <Route path="/recipes/:id" element={ <RecipeInfo /> } />
+                    <Route path="/categories/:categoryId/" element={ <Main /> } />
+                    <Route path="/recipes/:id/" element={ <RecipeInfo /> } />
                 </Routes>
             <Footer />
         </div>

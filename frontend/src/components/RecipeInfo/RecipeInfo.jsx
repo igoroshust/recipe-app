@@ -12,8 +12,6 @@ const RecipeInfo = () => {
     const getResult = async () => {
        const res = await getRecipeInfo(id);
        setRecipes([res.data]);
-//     const res = await getRecipesList();
-//     setRecipes(res.data);
 }
 
     useEffect(() => {

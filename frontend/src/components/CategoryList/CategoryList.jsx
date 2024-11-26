@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCategoryList } from '../../api/getCategories';
 
@@ -26,7 +26,7 @@ const CategoryList = () => {
                        <ul className="list-unstyled mb-0">
                        <li><Link to="/">Все категории</Link></li>
                         { !!categories.length && categories.map((category) => (
-                               <li><Link to={`/categories/${ category.id }`}>{ category.name }</Link></li>
+                                <li><NavLink to={`/categories/${ category.id }`} end style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}>{ category.name }</NavLink></li>
                         ))}
                         </ul>
                        </div>

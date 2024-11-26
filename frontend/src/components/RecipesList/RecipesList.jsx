@@ -1,21 +1,34 @@
 import React from 'react';
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getRecipesList } from '../../api/getRecipes';
+import { getCategoryInfo } from '../../api/getCategories';
 
 const RecipesList = () => {
+
+    const { categoryId } = useParams();
+    console.log(categoryId)
 
     const [recipes, setRecipes] = useState([]);
 
     const getResult = async () => {
-        const res = await getRecipesList();
-        setRecipes(res.data);
+        if (categoryId) {
+            const res = await getCategoryInfo(categoryId);
+            setRecipes(res.data.recipes)
+        } else {
+            const res = await getRecipesList();
+            setRecipes(res.data);
+        }
 }
 
     useEffect(() => {
         getResult();
     }, []);
+
+    useEffect(() => {
+        getResult();
+    }, [categoryId]);
 
     return (
     <>
