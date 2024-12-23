@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
     'app.apps.AppConfig',
     'api.apps.ApiConfig',
-    'django_extensions',
     'django_filters',
     'corsheaders',
     'rest_framework',
