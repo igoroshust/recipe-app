@@ -1,5 +1,5 @@
 ### Build Backend:
-1) python -m venv venv
+1) python -m venv venv (при первичной установке)
 2) venv\scripts\activate
 3) pip install -r requirements.txt
 4) cd backend
